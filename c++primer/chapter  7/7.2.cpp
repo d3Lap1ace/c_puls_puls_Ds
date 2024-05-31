@@ -7,19 +7,19 @@ class Sales_data{
     friend Sales_data add(const Sales_data &lhs, const Sales_data &rhs);
 
 public:
-    Sales_data() = default;
-    Sales_data(const std::string &s):bookNo(s){}
-    Sales_data(const std::string &s,unsigned n,double p):bookNo(s),units_sold(n),revenue(n*p){}
+    Sales_data() = default;   // 让编译器自己生成默认的构造函数
+    Sales_data(const std::string &s):bookNo(s){}  // 只有bookNo的构造函数
+    Sales_data(const std::string &s,unsigned n,double p):bookNo(s),units_sold(n),revenue(n*p){}  // 有参构造函数
     Sales_data(std::istream &is){read(is, *this)};
 
 
-    std::string isbn() const {return bookNo;};
-    Sales_data& combine(const Sales_data&);
+    std::string isbn() const {return bookNo;}; // get bookNO
+    Sales_data& combine(const Sales_data&);  // 
     
 private:
-    std::string bookNo;
-    unsigned units_sold = 0;
-    double revenue = 0.0;
+    std::string bookNo;        // string  书的名字
+    unsigned units_sold = 0;   // 无符号int 买多少
+    double revenue = 0.0;      // double   收入
 };
 
 Sales_data& Sales_data::combine(const Sales_data& rhs){
@@ -53,6 +53,7 @@ Sales_data& Sales_data::combine(const Sales_data& rhs){
     revenue += rhs.revenue;
     return *this;
 }
+
 
 inline double Sales_data::avg_price() const{
     return units_sold ? revenue/units_sold : 0;
