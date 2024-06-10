@@ -1,6 +1,7 @@
 #include<string>
 #include<iostream>
 #include<string>
+#include<vector>
 class Screen;
 class Window_mgr{
     public:

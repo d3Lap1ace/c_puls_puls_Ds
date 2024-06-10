@@ -16,4 +16,4 @@ class Book{
         std::string name_;
         std::string author_;
         std::string pubdate_;
-}
+};
