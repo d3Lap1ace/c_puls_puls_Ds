@@ -8,4 +8,4 @@ class C{
         C():def(0){ }
     private:
         NoDefault def;
-}
+};
